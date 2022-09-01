@@ -11,6 +11,10 @@ class Keyword(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'Palavra-Chave'
+        verbose_name_plural = 'Palavras-Chave'
+
 
 class Tcc(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -23,3 +27,7 @@ class Tcc(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     advisor = models.ForeignKey(Advisor, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'TCC'
+        verbose_name_plural = "TCC's"
