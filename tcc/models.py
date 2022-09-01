@@ -14,10 +14,11 @@ class Keyword(models.Model):
 
 class Tcc(models.Model):
     id = models.BigAutoField(primary_key=True)
-    file = models.FileField()
-    year = models.PositiveIntegerField()
-    title = models.CharField(max_length=300)
-    abstract = models.CharField(max_length=2500)
+    file = models.FileField(verbose_name="Arquivo do documento")
+    title = models.CharField(max_length=300, verbose_name="Título")
+    abstract = models.CharField(max_length=2500, verbose_name="Resumo")
+    year = models.PositiveIntegerField(verbose_name="Ano do documento")
+
     keywords = models.ManyToManyField(Keyword)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)

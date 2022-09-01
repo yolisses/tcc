@@ -9,5 +9,5 @@ class Course(models.Model):
     ]
 
     id = models.BigAutoField(primary_key=True)
-    name = models.CharField(max_length=50)
-    modality = models.CharField(max_length=12, choices=MODALITIES)
+    name = models.CharField(max_length=50, verbose_name="Nome")
+    modality = models.CharField(max_length=12, choices=MODALITIES, verbose_name="Modalidade")

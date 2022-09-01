@@ -3,6 +3,6 @@ from django.db import models
 
 class Author(models.Model):
     id = models.BigAutoField(primary_key=True)
-    given_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    picture = models.ImageField()
+    picture = models.ImageField(verbose_name="Foto")
+    last_name = models.CharField(max_length=50, verbose_name="Último nome")
+    given_name = models.CharField(max_length=50, verbose_name="Primeiro nome")
