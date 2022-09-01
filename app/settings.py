@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'course',
     'tcc',
     'author',
+    'advisor',
 ]
 
 MIDDLEWARE = [
