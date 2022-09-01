@@ -1,9 +1,24 @@
 from django.db import models
 
+from advisor.models import Advisor
+from author.models import Author
+from course.models import Course
+
+
+class Keyword(models.Model):
+    name = models.CharField(primary_key=True, max_length=30)
+
+    def __str__(self):
+        return self.name
+
 
 class Tcc(models.Model):
     id = models.BigAutoField(primary_key=True)
-    title = models.CharField(max_length=300)
-    year = models.PositiveIntegerField()
-    abstract = models.CharField(max_length=2500)
     file = models.FileField()
+    year = models.PositiveIntegerField()
+    title = models.CharField(max_length=300)
+    abstract = models.CharField(max_length=2500)
+    keywords = models.ManyToManyField(Keyword)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    advisor = models.ForeignKey(Advisor, on_delete=models.CASCADE)
